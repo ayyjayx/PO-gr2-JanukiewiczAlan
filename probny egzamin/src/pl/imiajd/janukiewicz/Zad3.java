@@ -13,5 +13,6 @@ public class Zad3 {
 
     public static void main (String[] args){
         System.out.println(directoryList("C:\\Users\\Alan\\IdeaProjects\\probny egzamin\\src\\pl\\imiajd\\janukiewicz", "java"));
+        System.out.println("a");
     }
 }
