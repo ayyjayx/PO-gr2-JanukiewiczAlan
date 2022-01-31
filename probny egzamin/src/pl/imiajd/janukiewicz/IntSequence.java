@@ -1,29 +1,49 @@
 package pl.imiajd.janukiewicz;
 
-import java.util.Arrays;
+interface IntSequence {
 
-public interface IntSequence {
     boolean hasNext();
     int next();
-    static void of(int[] n){
-//        for (Integer i : n){
-//            System.out.print(i + ", ");
-//        }
-//        int x = 0;
-//        while (x<1000){
-//            x++;
-//            System.out.print("1, ");
-//        }
-        class Sequence{
-            int[] seq;
+    static IntSequence of(int...args){
+        class Sequence implements IntSequence{
+            private int[] seq = args;
+            int counter = 0;
 
-            public Sequence(int [] seq){
-                this.seq = seq;
+            @Override
+            public boolean hasNext() {
+                return true;
             }
 
-            public int[] getSeq(){
-                return seq;
+            @Override
+            public int next() {
+                if (this.counter < this.seq.length) {
+                    this.counter++;
+                    return this.seq[counter-1];
+                }
+                else {
+                    return 1;
+                }
             }
         }
+        IntSequence result = new Sequence();
+        Sequence inner = (Sequence) result;
+        return inner;
+    }
+
+    static IntSequence squares (int n){
+        IntSequence sq = new IntSequence() {
+            int counter = n;
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
+
+            @Override
+            public int next() {
+                this.counter++;
+                return (int) Math.pow(this.counter-1, 2);
+            }
+        };
+        return sq;
     }
 }

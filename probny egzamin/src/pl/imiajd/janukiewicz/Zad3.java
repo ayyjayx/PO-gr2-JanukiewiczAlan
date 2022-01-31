@@ -10,4 +10,8 @@ public class Zad3 {
         File f = new File(path);
         return f.list((dir, name) -> !name.endsWith(extension.toUpperCase()));
     }
+
+    public static void main (String[] args){
+        System.out.println(directoryList("C:\\Users\\Alan\\IdeaProjects\\probny egzamin\\src\\pl\\imiajd\\janukiewicz", "java"));
+    }
 }
