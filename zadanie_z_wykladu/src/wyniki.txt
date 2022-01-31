@@ -1,0 +1,4 @@
+Porównanie wyników
+
+WordsInHashSet: 0-10 ms
+WordInTreeSet: 7-22ms
